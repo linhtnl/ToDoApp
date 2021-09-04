@@ -1,24 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
+<%- include("header") -%> 
+    <div class="box" id="heading">
+        <h1>It's a <%= listTitle %> !</h1>
+    </div>
+    <div class="box">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To Do List</title>
-</head>
+        <% newListItems.forEach(element=> { %>
+            <div class="item">
+                <input type="checkbox">
+                <p>
+                    <%= element %>
+                </p>
+            </div>
+            <% }) %>
 
-<body>
-    <h1>It's a <%= kindOfDay %> !</h1>
-    <ul>
-        <% newListItem.forEach(element => { %>
-            <li><%= element %> </li>
-        <% }) %>
-    </ul>
-    <form action="/" method="POST">
-        <input type="text" name="newItem" id="">
-        <button type="submit">Add</button>
-    </form>
-</body>
+                <form action="/" method="POST" class="item">
+                    <input type="text" name="newItem" placeholder="New Item" required autocomplete="off">
+                    <button type="submit" name="list" value='<%= listTitle %>'>+</button>
+                </form>
+    </div>
 
-</html>
+
+<%- include("footer") -%> 
